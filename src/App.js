@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-	const storedArray = [localStorage.getItem('squareRowsConfig')];
-	//console.log(storedArray, typeof storedArray);
-	
+function App() {	
 	const [squareRows, setSquareRows] = useState( localStorage.getItem('squareRowsConfig') ? 
 		JSON.parse(localStorage.getItem('squareRowsConfig')) 
 		: [
@@ -23,7 +20,6 @@ function App() {
 			});
 		});
 		localStorage.setItem('squareRowsConfig', JSON.stringify(newRows));
-		console.log('storage:', localStorage.getItem('squareRowsConfig'));
 		setSquareRows(newRows);
 	};
 	
